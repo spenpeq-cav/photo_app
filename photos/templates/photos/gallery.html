@@ -27,9 +27,9 @@
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">All</li>
-                        <li class="list-group-item">Cras justo odio</li>
-                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                        <li class="list-group-item">Vestibulum at eros</li>
+                        {% for category in categories %}
+                            <li class="list-group-item">{{category.name}}</li>
+                        {% endfor %}
                         <a href="{% url 'add' %}" class="btn btn-dark btn-block btn-sm m-1">Add Photo</a>
                         
                     </ul>
@@ -38,48 +38,20 @@
             </div>
             <div class="col-md-9">
                 <div class="row">
-
-                    <div class="col-md-4">
-                        <div class="card my-2">
-                            <img class="image-thumbnail" src="https://img.fixthephoto.com/blog/images/gallery/news_preview_mob_image__preview_579.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <small class="card-text">Category: Nature</small>
+                    
+                    {% for photo in photos %}
+                        <div class="col-md-4">
+                            <div class="card my-2">
+                                <img class="image-thumbnail" src="{{photo.image.url}}" alt="Image">
+                                <div class="card-body">
+                                    <small class="card-text">Category: {{photo.category.name}}</small>
+                                </div>
+                                <a href="{% url 'photo' photo.id %}" class="btn btn-outline-dark btn-sm m-1">View</a>
                             </div>
-                            <a href="{% url 'photo' 5 %}" class="btn btn-outline-dark btn-sm m-1">View</a>
                         </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="card my-2">
-                            <img class="image-thumbnail" src="https://wallpapercave.com/wp/wp6405048.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <small class="card-text">Category: Nature</small>
-                            </div>
-                            <a href="{% url 'photo' 5 %}" class="btn btn-outline-dark btn-sm m-1">View</a>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="card my-2">
-                            <img class="image-thumbnail" src="https://wallpapercave.com/wp/wp6405048.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <small class="card-text">Category: Nature</small>
-                            </div>
-                            <a href="{% url 'photo' 5 %}" class="btn btn-outline-dark btn-sm m-1">View</a>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="card my-2">
-                            <img class="image-thumbnail" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ976f-F5UtQdzSwH6spKm_Cx32mEH8fCJZRQ&usqp=CAU" alt="Card image cap">
-                            <div class="card-body">
-                                <small class="card-text">Category: Nature</small>
-                            </div>
-                            <a href="{% url 'photo' 5 %}" class="btn btn-outline-dark btn-sm m-1">View</a>
-                        </div>
-                    </div>
-
-
+                    {% empty %}
+                    <h3>No photos...</h3>
+                    {% endfor %}
 
                 </div>
             </div>

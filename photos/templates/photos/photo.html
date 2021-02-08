@@ -12,10 +12,10 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col">
-                <a href="{% url 'gallery' %}" class="btn btn-dark my-3">Go Back</a>
+                <a href= "{% url 'gallery' %}" class="btn btn-dark my-3">Go Back</a>
                 <div style="height: 90vh;">
-                    <img style="max-width: 100%; max-height:100%;" src="https://wallpapercave.com/wp/wp6405048.jpg">
-                    <p>Description of the image goes here.</p>
+                    <img style="max-width: 100%; max-height:100%;" src="{{photo.image.url}}">
+                    <p>{{photo.description}}</p>
                 </div>
             </div>
         </div>
