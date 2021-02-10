@@ -9,8 +9,13 @@
     integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <style>
         .image-thumbnail {
-            max-height: 200px;
+            height: 200px;
             object-fit: cover;
+        }
+
+        .list-group-item a{
+            text-decoration: none;
+            color: black;
         }
     </style>
 </head>
@@ -19,7 +24,7 @@
 <body class="m-5">
     <div class="container">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-4">
 
                 <div class="card">
                     <div class="card-header">
@@ -49,7 +54,7 @@
                             <div class="card my-2">
                                 <img class="image-thumbnail" src="{{photo.image.url}}" alt="Image">
                                 <div class="card-body">
-                                    <small class="card-text">Category: {{photo.category.name}}</small>
+                                    <small>Category: {{photo.category.name}}</small>
                                 </div>
                                 <a href="{% url 'photo' photo.id %}" class="btn btn-outline-dark btn-sm m-1">View</a>
                             </div>
