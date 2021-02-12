@@ -1,0 +1,8 @@
+<p> Are you sure? </p>
+
+<form method="POST" action="">
+    {% csrf_token %}
+    <input class="btn btn-danger my-3" type="submit" name="Confirm">
+</form>
+
+<a class = "btn btn-info my-3" href= "/">Cancel</a>
